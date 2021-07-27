@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block content %}
+
+    {% for item in headerimage %}
+    {% thumbnail item.image "900x900" as img %}
+    <section id="data-box"  style="background: linear-gradient(rgba(0,0,0,0.5),#009688),url('{{ img.url }}'); background-size: cover;
+     background-position: center;
+     height: 100vh;">
+     {% endthumbnail %}
+    {% endfor %}
+        <img data-aos="fade-up" src="{% static 'pages/images/logo.png' %}" class="logo" alt="لوگو ایران استیل">
+        <div data-aos="fade-up" class="banner-text">
+            {% for item in headertitel %}
+            <h1>
+               {{ item.titel }}
+            </h1>
+            {% endfor %}
+            {% for item in headerparam %}
+            <p>
+                {{ item.param }}
+            </p>
+            <br>
+            {% endfor %}
+
+            <div class="banner-btn">
+                <a href="{% url 'pages:products' %}"><span></span>محصولات ما</a>
+                <a href="{% url 'pages:contactus' %}"><span></span>تماس با ما</a>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Features -->
+
+
+    <section data-aos="fade-up" id="feature">
+        <div class="title-text">
+            {% for item in section1Part1 %}
+            <p>{{ item.titel }}</p>
+            {% endfor %}
+            <h1> IRAN STEEL</h1>
+        </div>
+        <div class="feature-box">
+            <div class="features">
+                {% for item in section1Part2 %}
+                <div class="features-desc">
+                    <div class="features-icon">
+                        <i class="fa fa-check-square"></i>
+                    </div>
+                </div>
+                <h1>{{ item.param }}</h1>
+                {% endfor %}
+            </div>
+            {% for item in section1Part3 %}
+            <div class="features-img">
+                <img src="{{ item.image.url }}" alt="عکس محصول">
+            </div>
+            {% endfor %}
+        </div>
+
+    </section>
+
+    <!-- Specialty -->
+    <section data-aos="fade-up" id="feature">
+        <div class="title-text">
+            {% for item in section2Part1 %}
+            <p>{{ item.titel }}</p>
+            {% endfor %}
+            <h1> IRAN STEEL</h1>
+        </div>
+        <div class="feature-box">
+            <div class="features">
+                {% for item in section2Part2 %}
+                <div class="features-desc">
+                    <div class="features-icon">
+                        <i class="fa fa-check"></i>
+                    </div>
+                </div>
+                <h1>{{ item.param }}</h1>
+                {% endfor %}
+            </div>
+            {% for item in section2Part3 %}
+            <div class="features-img">
+                <img src="{{ item.image.url }}" alt="عکس خدمات ما">
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+    <!-- Service -->
+
+    <section data-aos="fade-up" id="service">
+        <div class="title-text">
+            {% for item in section3Part1 %}
+            <p>{{ item.titel }}</p>
+            {% endfor %}
+            <h1> IRAN STEEL</h1>
+        </div>
+
+        <div class="service-box">
+
+
+            {% for item in section3Part2 %}
+            <div class="single-service">
+                <img src="{{ item.image.url }}" alt="عکس محصولات">
+                <div class="overlay"></div>
+                <div class="service-desc">
+                    <h3>{{ item.param }}</h3>
+                    <hr>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+{% endblock %}
+
+
+
+

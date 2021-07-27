@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fa">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ایران استیل</title>
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <link rel="shortcut icon" href="{% static 'pages/images/logo.png' %}"  />
+        <link href='https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'pages/style.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    </head>
+   
+    <body>
+
+    {% include 'inc/nav.html' %}
+
+        {% block content %}
+        {% endblock %}
+
+
+    
+    {% include 'inc/footer.html' %}
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+    AOS.init();
+    </script>
+      <script >
+        let menuBtn = document.getElementById('menuBtn')
+    let sideNav = document.getElementById('sideNav')
+    let menu = document.getElementById('menu')
+
+    
+
+    sideNav.style.right = '-250px'
+
+
+    menuBtn.onclick = function() {
+    if(sideNav.style.right == '-250px'){
+        sideNav.style.right = '0'
+        menu.src = "{% static 'pages/images/close.png' %}"
+    }else{
+        sideNav.style.right = '-250px'
+        menu.src = "{% static 'pages/images/menu.png' %}"
+    }
+}
+
+    </script>
+    </body>
+    
+  
+    
+</html>

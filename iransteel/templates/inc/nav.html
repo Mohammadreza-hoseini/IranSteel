@@ -1,0 +1,25 @@
+{% load static %}
+<div id="sideNav">
+        <nav>
+            <br>
+            <br>
+            <ul>
+                <li>
+                    <a href="{% url 'pages:pages' %}">صفحه اصلی</a>
+                </li>
+                <li>
+                    <a href="{% url 'pages:products' %}">محصولات</a>
+                </li>
+                <li>
+                    <a href="{% url 'pages:aboutus' %}">درباره ما</a>
+                </li>
+                <li>
+                    <a href="{% url 'pages:contactus' %}">تماس با ما</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="menuBtn">
+        <img src="{% static 'pages/images/menu.png' %}" alt="منو" id="menu">
+    </div>

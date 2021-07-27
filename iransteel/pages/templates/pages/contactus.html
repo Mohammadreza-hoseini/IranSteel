@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% block content %}
+
+        {% for item in contactusimage %}
+        {% thumbnail item.image "900x900" as img %}
+  <section class="contact" style=" position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: linear-gradient(rgba(0,0,0,0.5),#009688),url('{{ img.url }}');
+    background-size: cover;
+    background-position: center;">
+    {% endthumbnail %}
+         {% endfor %}
+         
+        <div class="content">
+            <h1>تماس با ما</h1>
+            <hr>
+            {% for item in contactustitel %}
+            <p>
+                {{ item.param }}
+            </p>
+            {% endfor %}
+        </div>
+        <div class="container">
+            <div class="contactInfo">
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-map-marker-alt"></i>
+                    </div>
+                    <div class="text">
+                        <h3>آدرس</h3>
+                        {% for item in contactusaddress %}
+                        <p>{{ item.address }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-mobile-alt"></i>
+                    </div>
+                    <div class="text">
+                        <h3>شماره های تماس</h3>
+                        {% for item in contactusphone %}
+                        <p>{{ item.phone }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                    <div class="text">
+                        <h3>ایمیل</h3>
+                        {% for item in contactusemail %}
+                        <p>{{ item.email }}</p>
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="contactForm">
+                <form method="post">
+                    {% csrf_token %}
+                    <h2>ارسال پیام</h2>
+
+                    <br><br>
+                    <div class="inputBox">
+                        <input type="text" name="name" required="required">
+                        <span>نام و نام خانوادگی</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="phone" required="required">
+                        <span>شماره تماس</span>
+                    </div>
+                    <div class="inputBox">
+                        <textarea name="subject" required="required"></textarea>
+                        <span>پیام خود را بنویسید...</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" name="" value="ارسال پیام">
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d286.47265172276724!2d51.300042853229925!3d35.67532576097239!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf7615eeb80db4b01!2sPars%20Qadir!5e0!3m2!1sen!2snl!4v1626759554415!5m2!1sen!2snl" width="1000" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+{% endblock %}

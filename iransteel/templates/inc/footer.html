@@ -1,0 +1,52 @@
+{% load static %}
+
+  <footer id="footer">
+      {% for item in footerimage %}
+        <img src="{{item.image.url}}" alt="عکس فوتر" class="footer-img">
+      {% endfor %}
+        <div class="title-text">
+            {% for item in footertitel %}
+            <p>{{ item.titel }}</p>
+            {% endfor %}
+            <h1> IRAN STEEL</h1>
+        </div>
+
+        <div class="footer-row">
+
+        <div class="footer-left">
+            {% for item in footertitelright %}
+            <h2>{{ item.titel }}</h2>
+            {% endfor %}
+            {% for item in footerparamsright %}
+            <p><i class="fa fa-clock"></i>{{ item.param }}</p>
+            {% endfor %}
+        </div>
+
+        <div class="footer-right">
+            {% for item in footertitelleft %}
+            <h2>{{ item.titel }}</h2>
+            {% endfor %}
+            {% for item in footeraddress %}
+            <p><i class="fa fa-map-marker-alt"></i>{{ item.address }}</p>
+            {% endfor %}
+            {% for item in footermobile %}
+            <p><i class="fa fa-mobile-alt"></i>{{ item.mobile }}</p>
+            {% endfor %}
+            {% for item in footeremail %}
+            <p><i class="fa fa-envelope"></i> {{ item.email }}</p>
+            {% endfor %}
+            {% for item in footerphone %}
+            <p><i class="fa fa-phone"></i>{{ item.phone }}</p>
+            {% endfor %}
+            {% for item in footerfax %}
+            <p><i class="fa fa-fax"></i>{{ item.fax }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="role">
+        <p>تمامی حقوق این سایت متعلق به <strong>ایران استیل</strong> می باشد</p>
+        <hr>
+        <strong>توسعه دهنده:محمدرضا حسینی</strong>
+        <p>ارتباط با توسعه دهنده:۰۹۰۵۱۴۴۱۱۳۲</p>
+    </div>
+    </footer>

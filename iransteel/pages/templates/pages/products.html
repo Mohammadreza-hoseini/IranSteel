@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% block content %}
+
+        {% for item in productsbackground %}
+        {% thumbnail item.image "900x900" as img %}
+  <section  class="contact" style=" position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: linear-gradient(rgba(0,0,0,0.5),#009688),url('{{ img.url }}');
+    background-size: cover;
+    background-position: center;">
+    {% endthumbnail %}
+         {% endfor %}
+         
+        <div class="productscontent">
+            <h1>محصولات ایران استیل</h1>
+            <hr>
+        </div>
+        <div class="productscontainer">
+            <div class="contactInfo">
+                
+                <div class="box">
+
+                    {% for item in productsparam %}
+                    <div class="text">
+                        <p>
+                            {{ item.param }}
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="service" style="padding-bottom: 0;">
+        <div class="title-text">
+            <h1> IRAN STEEL</h1>
+        </div>
+
+        <div class="service-box">
+
+
+            {% for item in productsimg %}
+            <div class="single-service">
+                <img src="{{ item.image.url }}" alt="عکس محصولات">
+                <div class="overlay"></div>
+                
+            </div>
+            {% endfor %}
+
+            
+        </div>
+    <br><br>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d286.47265172276724!2d51.300042853229925!3d35.67532576097239!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf7615eeb80db4b01!2sPars%20Qadir!5e0!3m2!1sen!2snl!4v1626759554415!5m2!1sen!2snl" width="1000" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+{% endblock %}

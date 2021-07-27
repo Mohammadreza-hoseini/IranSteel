@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% block content %}
+<br><br>
+{% for item in aboutus %}
+    <div class="feature-box">
+            <div class="features">
+                <div class="features-desc">
+                    <div class="features-icon">
+                        <i class="fa fa-shield-alt"></i>
+
+                    </div>
+
+                </div>
+                <h1>{{ item.titel }}</h1>
+            </div>
+            <div class="features-img">
+                {% thumbnail item.image "900x900" as img %}
+                <img src="{{ img.url }}" alt="عکس درباره ما">
+                {% endthumbnail %}
+            </div>
+        </div>
+    <div class="aboutusdescription">
+        <p>
+            {{ item.param }}
+        </p>
+    </div>
+
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d286.47265172276724!2d51.300042853229925!3d35.67532576097239!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf7615eeb80db4b01!2sPars%20Qadir!5e0!3m2!1sen!2snl!4v1626759554415!5m2!1sen!2snl" width="1000" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+{% endfor %}
+
+{% endblock %}
